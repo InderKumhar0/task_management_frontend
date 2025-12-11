@@ -15,7 +15,7 @@ export default function NavBar() {
     await dispatch(logoutUser()).unwrap();
     localStorage.removeItem('token');
     dispatch(clearUser());
-    router.push('login');
+    router.push('/login');
   };
 
   return (

@@ -3,7 +3,6 @@
 'use client';
 
 import { useForm } from '@/hooks/useForm';
-import { useRouter } from 'next/navigation';
 
 import { AppDispatch } from '@/store/store';
 import { signupUser } from '@/store/user/userAction';
@@ -22,7 +21,6 @@ interface SignupFormData {
 }
 
 export default function SignupPage() {
-  const router = useRouter();
   const dispatch = useDispatch<AppDispatch>();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -30,7 +28,7 @@ export default function SignupPage() {
   const signup = async (formData: SignupFormData) => {
     await dispatch(signupUser(formData)).unwrap();
     toast.success('Signup successfully');
-    router.push('/home');
+    // router.push('/home');
   };
 
   const { values, errors, isSubmitting, handleChange, handleSubmit } =

@@ -1,5 +1,3 @@
-// (protected)/home/page.tsx
-
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -77,6 +75,7 @@ export default function HomePage() {
         </div>
 
         <div className="flex justify-center mb-6">
+          <>{isAuthenticated}</>
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}

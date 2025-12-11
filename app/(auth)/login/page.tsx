@@ -11,8 +11,6 @@ import { AppDispatch } from '@/store/store';
 import { loginSchema } from '@/validations/authValidation';
 import { useForm } from '@/hooks/useForm';
 import { loginUser } from '@/store/user/userAction';
-import { useRouter } from 'next/navigation';
-import PublicGuard from '@/components/PublicGuard';
 
 interface LoginFormData {
   email: string;
@@ -20,14 +18,13 @@ interface LoginFormData {
 }
 
 export default function LoginPage() {
-  const router = useRouter();
   const dispatch = useDispatch<AppDispatch>();
   const [showPassword, setShowPassword] = useState(false);
 
   const login = async (formData: LoginFormData) => {
     await dispatch(loginUser(formData)).unwrap();
     toast.success('Login successfully');
-    router.push('/home');
+    // router.push('/home');
   };
 
   const { values, errors, isSubmitting, handleChange, handleSubmit } =

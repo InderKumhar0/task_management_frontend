@@ -54,6 +54,13 @@ export const handleApiError = (error: unknown): Record<string, string> => {
   if (axios.isAxiosError(error)) {
     const axiosError = error as AxiosError<ApiErrorResponse>;
 
+    const requestUrl = axiosError.config?.url;
+    const status = axiosError.response?.status;
+
+    if (status === 401 && requestUrl?.includes('/users/me')) {
+      return {};
+    }
+
     if (axiosError.response) {
       const { message, errors } = axiosError.response.data || {};
 

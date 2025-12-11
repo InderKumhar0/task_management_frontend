@@ -1,4 +1,5 @@
 'use client';
+import { MoveRight } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 export default function Home() {
@@ -14,10 +15,10 @@ export default function Home() {
         </p>
 
         <button
-          onClick={() => router.push('/login')}
+          onClick={() => router.push('/home')}
           className="bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition"
         >
-          Login
+          <MoveRight />
         </button>
       </div>
     </div>
